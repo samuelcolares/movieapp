@@ -1,0 +1,317 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    /* display: grid;
+    place-content: center; */
+    min-height: 100vh;
+    background-color: rgb(106, 64, 145);
+    background-image: url(../img/2.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Navegação */
+header {
+    backdrop-filter: blur(15px) brightness(60%);
+    /* background-color: rgb(131, 67, 190);
+    background-image: url(../img/2115520.jpg); */
+    /* background-size: cover; */
+    padding: 0 30px;
+    box-shadow: 0px 0px 10px black;
+    color: white;
+    position: relative;
+    z-index: 1000;
+}
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* overflow: hidden; */
+}
+nav h1 {
+    cursor: pointer;
+    justify-self: space-between;
+    transition: 0.4s ease;
+}
+nav h1:hover {
+    color: rgb(26, 139, 214);
+}
+
+
+/* Botões da barra de navegação */
+.btn1 {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    transition: 0.4s ease;
+    padding: 1rem 2rem;
+    cursor: pointer;
+}
+.btn1:active {
+    transform: scale(0.97);
+}
+.btn1:hover{
+    color: rgb(26, 139, 214);
+    background-color: rgba(0, 0, 0, 0.562);
+}
+.nowPlaying {
+    margin-left: auto;
+}
+
+
+
+/* Menu invisível com os gêneros */
+.genres-wrapper {
+    position: relative;
+    padding: 1rem 2rem;
+    z-index: 2;
+    margin-right: auto;
+}
+.genres-wrapper:hover {
+    background-color: rgba(0, 0, 0, 0.562);
+    transition: 0.4s ease;
+}
+.genres-wrapper p{
+    cursor:default;
+}
+.genres-wrapper:hover p{
+    color: rgb(26, 139, 214);
+    transition: 0.4s ease;
+}
+.genres-wrapper:hover .genres {
+    display: block;
+}
+.genres {
+    display: none;
+    position: absolute;
+    list-style: none;
+    top: 100%;
+    left: 0;
+    z-index: 4;
+    box-shadow: 0px 5px 10px black;
+}
+.genres li {
+    background-color: rgb(0, 41, 80);
+    padding: 10px;
+    width: 100%;
+    transition: color 0.4s ease;
+    cursor: pointer;
+}
+.genres li:hover {
+    background-color: rgb(2, 26, 48);
+    color: rgb(26, 139, 214);
+}
+
+
+
+/* Botão e Input de pesquisa */
+.search {
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 10px;
+    transition: 0.4s ease;
+    color: white;
+    justify-self: flex-end;
+}
+.search.open {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.input {
+    background: none;
+    border: none;
+    outline: none;
+    width: 0px;
+    transition: 0.4s ease;
+    color: white;
+    font-size: 20px;
+}
+.input.open {
+    width: 200px;
+    padding: 5px;
+}
+.input::placeholder {
+    color: white;
+}
+.btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 0 10px;
+}
+.btn i {
+    color: white;
+}
+
+
+/* Main: Apenas os filmes */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    margin: 3rem 0;
+}
+.movie {
+    width: 300px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0px 0px 10px black;
+    padding: 0.5rem;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+.movie img {
+    width: 100%;
+}
+.movie-info > h3 {
+    max-width: 80%;
+}
+.movie-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+.movie-info span {
+    display: block;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: rgba(26, 29, 26, 0.911);
+}
+.movie-info span.green {
+    color: yellowgreen;
+}
+.movie-info span.orange {
+    color: rgb(255, 145, 0);
+}
+.movie-info span.red {
+    color: rgb(255, 0, 0);
+}
+.overview {
+    color: black;
+    padding: 2rem;
+    background-color: white;
+    position: absolute;
+    /* inset: 0; */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translate(100%, 100%);
+    transition: 0.5s;
+    overflow-y: auto;
+}
+.movie:hover .overview {
+    transform: translate(0);
+}
+
+
+.icon{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(41, 40, 40, 0.589);
+    transition: 1s;
+}
+.icon.active{
+    background-color: transparent;
+}
+.line {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    background-color: rgb(26, 139, 214);
+    transform-origin: center;
+    transition: 1s;
+}
+.line1 {
+    transform: translate(-50%, -20%) rotate(-90deg);
+}
+.line2 {
+    transform: translate(-50%, -50%) rotate(-90deg);
+}
+.line3 {
+    transform: translate(-50%, -80%) rotate(90deg);
+}
+.icon.active .line1 {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+.icon.active .line2 {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.icon.active .line3 {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+@media screen and (max-width: 580px) {
+    header{
+        position: absolute;
+        top: 0;
+        left: -101%;
+        background-color: rgba(0, 0, 0, 0.862);
+        height: 100dvh;
+        width: 85dvw;
+        transition: left 0.5s;
+    }
+    header.active{
+        left: 0;
+    }
+    header nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: self-start;
+        flex-direction: column;
+        margin-top: 4rem;
+    }
+    nav h1{
+        margin-bottom: 2rem;
+    }
+    .icon{
+        top: 12px;
+        left: 12px;
+        z-index: 10000;
+    }
+    .nowPlaying, .genres-wrapper{
+        margin: 0;
+    }
+    .genres-wrapper{
+        display: none;
+    }
+    .search{
+        padding-left: 2rem;
+    }
+    .input.open {
+        width: 150px;
+        padding: 5px;
+    }
+    .btn {
+        order: -1;
+    }
+}
+@media screen and (min-width: 581px) {
+    .icon{
+        display: none;
+    }
+    
+}
